@@ -15,11 +15,50 @@ namespace YourHike.Controllers
             _db = db;
         }
 
+        [HttpGet]
         public IActionResult Index()
         {
             List<HikeVM> travels = _db.Hikes.Select(x => new HikeVM(x)).ToList();
 
             return View(travels);
+        }
+
+        [HttpGet]
+        public IActionResult Details(int id)
+        {
+            HikeVM travel = _db.Hikes.Where(x=>x.Id == id).Select(x => new HikeVM(x)).First();
+
+            return View(travel);
+        }
+
+        public IActionResult Edit(int id)
+        {
+            HikeVM travel = _db.Hikes.Where(x=>x.Id == id).Select(x => new HikeVM(x)).First();
+
+            if(travel == null)
+            {
+                TempData["EditResult"] = "Nie istnieje taka wędrówka";
+                return RedirectToAction("Index");
+            }
+
+            return View(travel);
+        }
+
+        public IActionResult Delete(int id)
+        {
+            var toDelete = _db.Hikes.Find(id);
+
+            if(toDelete == null)
+            {
+                TempData["DeleteResult"] = "Nie istnieje taka wędrówka";
+                return RedirectToAction("Index");
+            }
+
+            _db.Hikes.Remove(toDelete);
+            _db.SaveChanges();
+
+            TempData["DeleteResult"] = "Wędrówka usunięta - teraz można ruszać na następną..";
+            return RedirectToAction("Index");
         }
 
         public IActionResult Privacy()

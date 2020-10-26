@@ -14417,6 +14417,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\mateu\\source\\repos\\YourHike\\Views\\Hike\\Details.cshtml",
+      "TargetPath": "Views\\Hike\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\mateu\\source\\repos\\YourHike\\Views\\_ViewImports.cshtml",
       "TargetPath": "Views\\_ViewImports.cshtml",
       "FileKind": "mvc"
@@ -14424,6 +14429,11 @@
     {
       "FilePath": "c:\\Users\\mateu\\source\\repos\\YourHike\\Views\\Shared\\_Layout.cshtml",
       "TargetPath": "Views\\Shared\\_Layout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\mateu\\source\\repos\\YourHike\\Views\\Hike\\Edit.cshtml",
+      "TargetPath": "Views\\Hike\\Edit.cshtml",
       "FileKind": "mvc"
     },
     {

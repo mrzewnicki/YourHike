@@ -1,0 +1,19 @@
+﻿@model YourHike.Models.ViewModel.HikeVM
+
+@{
+    ViewData["Title"] = Model.Title;
+}
+
+
+@{
+    <div class="text-center">
+        <h2 class="display-4 text-primary">@Model.Title</h2>
+    </div>
+    <span>@Model.StartDate</span><br />
+    <span>@Model.EndDate</span><br />
+    <span>@Model.StartPlace</span><br />
+    <span>@Model.EndPlace</span><br />
+    <span>@Model.Distance</span><br />
+    <a href="/Hike/Edit/@Model.Id" class="btn btn-info">Edytuj</a>
+    <a href="/Hike/Delete/@Model.Id" class="btn btn-danger">Usuń</a>
+}

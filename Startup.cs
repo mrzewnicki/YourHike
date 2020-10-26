@@ -50,9 +50,19 @@ namespace YourHike
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}");
+                    pattern: "{controller=Hike}/{action=Index}");
 
-                    
+                endpoints.MapControllerRoute(
+                    name: "Details",
+                    pattern: "{controller=Hike}/{action=Details}/{id}");
+
+                    endpoints.MapControllerRoute(
+                    name: "Details",
+                    pattern: "{controller=Hike}/{action=Edit}/{id}");
+
+                    endpoints.MapControllerRoute(
+                    name: "Details",
+                    pattern: "{controller=Hike}/{action=Delete}/{id}");
             });
         }
     }
