@@ -4,16 +4,49 @@
     ViewData["Title"] = Model.Title;
 }
 
+<div id="hike-details" class="row mb-2" style="width:auto;">
+    <div id="hike-data" class="col-6 bg-dark p-2 rounded">
+        @Html.LabelFor(Model => Model.Title, htmlAttributes: new { @class = "control-label text-secondary" })
+        <div class="col-md-5 text-weight-bold text-white">
+            @Html.DisplayFor(Model => Model.Title, new { htmlAttributes = new { @class = "form-control col-auto " } })
 
-@{
-    <div class="text-center">
-        <h2 class="display-4 text-primary">@Model.Title</h2>
+        </div>
+
+        @Html.LabelFor(Model => Model.StartDate, htmlAttributes: new { @class = "control-label text-secondary" })
+        <div class="col-md-5 text-weight-bold text-white">
+            @Html.DisplayFor(Model => Model.StartDate, new { htmlAttributes = new { @class = "form-control col-auto " }
+            })
+        </div>
+
+        @Html.LabelFor(Model => Model.EndDate, htmlAttributes: new { @class = "control-label text-secondary" })
+        <div class="col-md-5 text-weight-bold text-white">
+            @Html.DisplayFor(Model => Model.EndDate, new { htmlAttributes = new { @class = "form-control col-auto " } })
+        </div>
+
+        @Html.LabelFor(Model => Model.StartPlace, htmlAttributes: new { @class = "control-label text-secondary" })
+        <div class="col-md-5 text-weight-bold text-white">
+            @Html.DisplayFor(Model => Model.StartPlace, new { htmlAttributes = new { @class = "form-control col-auto " }
+            })
+        </div>
+
+        @Html.LabelFor(Model => Model.EndPlace, htmlAttributes: new { @class = "control-label text-secondary" })
+        <div class="col-md-5 text-weight-bold text-white">
+            @Html.DisplayFor(Model => Model.EndPlace, new { htmlAttributes = new { @class = "form-control col-auto " }
+            })
+        </div>
+
+        @Html.LabelFor(Model => Model.Distance, htmlAttributes: new { @class = "control-label text-secondary" })
+        <div class="col-md-5 text-weight-bold text-white">
+            @Html.DisplayFor(Model => Model.Distance, new { htmlAttributes = new { @class = "form-control col-auto " }
+            })
+        </div>
     </div>
-    <span>@Model.StartDate</span><br />
-    <span>@Model.EndDate</span><br />
-    <span>@Model.StartPlace</span><br />
-    <span>@Model.EndPlace</span><br />
-    <span>@Model.Distance</span><br />
-    <a href="/Hike/Edit/@Model.Id" class="btn btn-info">Edytuj</a>
-    <a href="/Hike/Delete/@Model.Id" class="btn btn-danger">Usuń</a>
-}
+
+    <div id="hike-multimedia" class="col-6">
+
+    </div>
+</div>
+
+<a href="/Hike" class="btn btn-secondary m2 p2">Powrót do listy</a>
+<a href="/Hike/Edit/@Model.Id" class="btn btn-info m2 p2">Edytuj</a>
+<a href="/Hike/Delete/@Model.Id" class="btn btn-danger m2 p2">Usuń</a>

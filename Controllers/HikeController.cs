@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
@@ -97,6 +98,8 @@ namespace YourHike.Controllers
         public IActionResult Create()
         {
             HikeVM model = new HikeVM();
+            model.StartDate = DateTime.Now;
+            model.EndDate = DateTime.Now.AddDays(1.0);
 
             return View(model);
         }

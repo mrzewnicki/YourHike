@@ -1,5 +1,21 @@
-#bodyId {
-    background-image: url("/wwwroot/Hikes/MorskieOko.jpg") !important;
+#slidesBG{
+    background-image: url("../Hikes/Backgrounds/MorskieOko.jpg") !important;
     background-repeat: no-repeat !important;
     background-size: cover !important;
+    /* filter: blur(8px);
+    -webkit-filter: blur(8px); */
+    height: 100%;
+}
+
+/* hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 1px solid rgba(196, 196, 196, 0.1);
+    width: inherit;
+} */
+
+div>main{
+    background-color: rgba(52, 58, 64, 0.5);
+    /* background-color: #343A40; */
 }

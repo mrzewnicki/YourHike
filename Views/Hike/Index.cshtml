@@ -1,4 +1,4 @@
-﻿@model List<YourHike.Models.ViewModel.HikeVM>
+﻿@model IEnumerable<YourHike.Models.ViewModel.HikeVM>
 
 @{
     ViewData["Title"] = "Wędrówki";
@@ -6,7 +6,7 @@
 
 
 @{
-    if (@Model.Count >= 1)
+    if (@Model.Any())
     {
         <div class="text-center">
             <h1 class="display-4 text-primary">Twoje wędrówki</h1>
@@ -35,17 +35,17 @@
         </div>
     }
 
-    if (@Model.Count >= 1)
+    if (@Model.Any())
     {
-        <table class="table table-striped table-dark">
+        <table id="hikes-list" class="table table-striped table-dark">
             <thead class="thead-dark">
                 <tr>
-                    <th scope="col">Title</th>
-                    <th scope="col">Start Date</th>
-                    <th scope="col">End Date</th>
-                    <th scope="col">Start Place</th>
-                    <th scope="col">End Place</th>
-                    <th scope="col">Distance</th>
+                    <th scope="col">@Html.DisplayNameFor(x=>x.Title)</th>
+                    <th scope="col">@Html.DisplayNameFor(x=>x.StartDate)</th>
+                    <th scope="col">@Html.DisplayNameFor(x=>x.EndDate)</th>
+                    <th scope="col">@Html.DisplayNameFor(x=>x.StartPlace)</th>
+                    <th scope="col">@Html.DisplayNameFor(x=>x.EndPlace)</th>
+                    <th scope="col">@Html.DisplayNameFor(x=>x.Distance)</th>
                     <th scope="col"></th>
                 </tr>
             </thead>
