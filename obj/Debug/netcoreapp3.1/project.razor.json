@@ -14402,18 +14402,13 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\mateu\\source\\repos\\YourHike\\Views\\Home\\Index.cshtml",
-      "TargetPath": "Views\\Home\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "c:\\Users\\mateu\\source\\repos\\YourHike\\Views\\_ViewStart.cshtml",
       "TargetPath": "Views\\_ViewStart.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\mateu\\source\\repos\\YourHike\\Views\\Home\\Privacy.cshtml",
-      "TargetPath": "Views\\Home\\Privacy.cshtml",
+      "FilePath": "c:\\Users\\mateu\\source\\repos\\YourHike\\Views\\Hike\\Create.cshtml",
+      "TargetPath": "Views\\Hike\\Create.cshtml",
       "FileKind": "mvc"
     },
     {

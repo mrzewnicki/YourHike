@@ -1,10 +1,17 @@
 @model YourHike.Models.ViewModel.HikeVM
 
 @{
-    ViewData["Title"] = Model.Title;
+    ViewData["Title"] = "Nowa wędrówka";
 }
 
-@using (Html.BeginForm("Edit", "Hike", FormMethod.Post, new { enctype = "multipart/form-data" }))
+@if (TempData["TitleExist"] != null)
+{
+    <div>
+        <span class="text-danger">@TempData["TitleExist"]</span>
+    </div>
+}
+
+@using (Html.BeginForm("Create", "Hike", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
 
@@ -30,9 +37,9 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.EndDate, htmlAttributes: new { @class = "control-label col-2 text-light myDatepicker" })
+            @Html.LabelFor(model => model.EndDate, htmlAttributes: new { @class = "control-label col-2 text-light" })
             <div class="col-md-5">
-                @Html.EditorFor(model => model.EndDate, new { htmlAttributes = new { @class = "form-control col-auto" } })
+                @Html.EditorFor(model => model.EndDate, new { htmlAttributes = new { @class = "form-control col-auto myDatepicker" } })
                 @Html.ValidationMessageFor(model => model.EndDate, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -63,11 +70,12 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-5">
-                <input type="submit" value="Zapisz" class="btn btn-success" />
+                <input type="submit" value="Dodaj" class="btn btn-success" />
             </div>
         </div>
     </div>
 }
+
 <script>
     $(".myDatepicker").datepicker();
 </script>

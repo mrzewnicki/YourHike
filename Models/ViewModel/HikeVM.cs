@@ -6,6 +6,11 @@ namespace YourHike.Models.ViewModel
 {
     public class HikeVM
     {
+        public HikeVM()
+        {
+            
+        }
+
         public HikeVM(HikeDTO row)
         {
             Id = row.Id;
@@ -20,15 +25,20 @@ namespace YourHike.Models.ViewModel
         public int Id { get; set; }
 
         [Display(Name="Tytuł")]
+        [Required]
         public string Title { get; set; }
 
         [Display(Name="Data rozpoczęcia:")]
+        [Required]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MMM/yyyy}")]
         public DateTime StartDate { get; set; }
 
         [Display(Name="Data zakończenia:")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MMM/yyyy}")]
         public DateTime? EndDate { get; set; }
 
         [Display(Name="Miejsce rozpoczęcia:")]
+        [Required]
         public string StartPlace { get; set; }
 
         [Display(Name="Miejsce zakończenia:")]

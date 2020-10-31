@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using YourHike.Models;
+using YourHike.Models.DTO;
 using YourHike.Models.ViewModel;
 
 namespace YourHike.Controllers
@@ -31,6 +32,7 @@ namespace YourHike.Controllers
             return View(travel);
         }
 
+        [HttpGet]
         public IActionResult Edit(int id)
         {
             HikeVM travel = _db.Hikes.Where(x=>x.Id == id).Select(x => new HikeVM(x)).First();
@@ -42,6 +44,36 @@ namespace YourHike.Controllers
             }
 
             return View(travel);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(HikeVM model)
+        {
+
+            if(!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            if(!_db.Hikes.Any(x=>x.Id == model.Id))
+            {
+                TempData["RecordNotExist"] = "Wyprawa którą próbujesz edytować nie istnieje, możesz ją dodać";
+                return RedirectToAction("Create",new {model=model});
+            }
+
+            HikeDTO travel = _db.Hikes.Find(model.Id);
+
+                travel.Title = model.Title;
+                travel.StartDate = model.StartDate;
+                travel.EndDate = model.EndDate;
+                travel.StartPlace = model.StartPlace;
+                travel.EndPlace = model.EndPlace;
+                travel.Distance = model.Distance;
+
+            _db.SaveChanges();
+
+            TempData["EditSuccess"] = "Edycja zakończona sukcesem!";
+            return RedirectToAction("Details",new {Id=travel.Id});
         }
 
         public IActionResult Delete(int id)
@@ -61,6 +93,33 @@ namespace YourHike.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpGet]
+        public IActionResult Create()
+        {
+            HikeVM model = new HikeVM();
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public IActionResult Create(HikeVM model)
+        {
+            if(!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            if(_db.Hikes.Any(x=>x.Title == model.Title)){
+                TempData["TitleExist"] = "Wędrówka o takim tytule już istnieje - zmień go";
+                return View(model);
+            }
+
+            HikeDTO toAdd = new HikeDTO(model);
+            _db.Hikes.Add(toAdd);
+            _db.SaveChanges();
+
+            return RedirectToAction("Details",new{Id=toAdd.Id});
+        }
         public IActionResult Privacy()
         {
             return View();

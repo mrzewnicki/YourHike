@@ -4,50 +4,75 @@
     ViewData["Title"] = "Wędrówki";
 }
 
-<div class="text-center">
-    <h1 class="display-4 text-primary">Twoje wędrówki</h1>
-</div>
 
-@if(TempData["DeleteResult"] != null)
-{
-    <div>
-        <span class="text-success">@TempData["DeleteResult"]</span>
-    </div>
-}
+@{
+    if (@Model.Count >= 1)
+    {
+        <div class="text-center">
+            <h1 class="display-4 text-primary">Twoje wędrówki</h1>
+        </div>
 
-@if(TempData["EditResult"] != null)
-{
-    <div>
-        <span class="text-success">@TempData["EditResult"]</span>
-    </div>
-}
+        <div id="submenu">
+            <ul class="list-inline d-inline-flex">
+                <li class="m-2">
+                    <a href="/Hike/Create" class="btn btn-success p1">Dodaj wędrówkę</a>
+                </li>
+            </ul>
+        </div>
+    }
 
-<table class="table table-striped table-dark">
-    <thead class="thead-dark">
-        <tr>
-            <th scope="col">Title</th>
-            <th scope="col">Start Date</th>
-            <th scope="col">End Date</th>
-            <th scope="col">Start Place</th>
-            <th scope="col">End Place</th>
-            <th scope="col">Distance</th>
-            <th scope="col"></th>
-        </tr>
-    </thead>
-    <tbody>
-        @{
-            foreach (var item in @Model)
-            {
+    @if (TempData["DeleteResult"] != null)
+    {
+        <div>
+            <span class="text-success">@TempData["DeleteResult"]</span>
+        </div>
+    }
+
+    @if (TempData["EditResult"] != null)
+    {
+        <div>
+            <span class="text-success">@TempData["EditResult"]</span>
+        </div>
+    }
+
+    if (@Model.Count >= 1)
+    {
+        <table class="table table-striped table-dark">
+            <thead class="thead-dark">
                 <tr>
-                    <td>@item.Title</td>
-                    <td>@item.StartDate</td>
-                    <td>@item.EndDate</td>
-                    <td>@item.StartPlace</td>
-                    <td>@item.EndPlace</td>
-                    <td>@item.Distance</td>
-                    <td><a href="/Hike/Details/@item.Id" class="btn btn-info">Szczegóły</a></td>
+                    <th scope="col">Title</th>
+                    <th scope="col">Start Date</th>
+                    <th scope="col">End Date</th>
+                    <th scope="col">Start Place</th>
+                    <th scope="col">End Place</th>
+                    <th scope="col">Distance</th>
+                    <th scope="col"></th>
                 </tr>
-            }
-        }
-    </tbody>
-</table>
+            </thead>
+            <tbody>
+                @{
+                    foreach (var item in @Model)
+                    {
+                        <tr>
+                            <td>@item.Title</td>
+                            <td>@item.StartDate</td>
+                            <td>@item.EndDate</td>
+                            <td>@item.StartPlace</td>
+                            <td>@item.EndPlace</td>
+                            <td>@item.Distance</td>
+                            <td>
+                                <a href="/Hike/Details/@item.Id" class="btn btn-info">Szczegóły</a>
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <div class="text-center my-5">
+            <a asp-controller="Hike" asp-action="Create" class="btn btn-primary"><h1 class="display-4 text-light p2">Rozpocznij wędrówkę..</h1></a>
+        </div>
+    }
+}

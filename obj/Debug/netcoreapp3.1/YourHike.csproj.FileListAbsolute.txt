@@ -19,8 +19,6 @@ C:\Users\mateu\source\repos\YourHike\obj\Debug\netcoreapp3.1\YourHike.AssemblyIn
 C:\Users\mateu\source\repos\YourHike\obj\Debug\netcoreapp3.1\YourHike.TagHelpers.input.cache
 C:\Users\mateu\source\repos\YourHike\obj\Debug\netcoreapp3.1\YourHike.TagHelpers.output.cache
 C:\Users\mateu\source\repos\YourHike\obj\Debug\netcoreapp3.1\YourHike.RazorCoreGenerate.cache
-C:\Users\mateu\source\repos\YourHike\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
-C:\Users\mateu\source\repos\YourHike\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
 C:\Users\mateu\source\repos\YourHike\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
 C:\Users\mateu\source\repos\YourHike\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\mateu\source\repos\YourHike\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
@@ -78,3 +76,4 @@ C:\Users\mateu\source\repos\YourHike\bin\Debug\netcoreapp3.1\runtimes\win-x86\na
 C:\Users\mateu\source\repos\YourHike\obj\Debug\netcoreapp3.1\Razor\Views\Hike\Index.cshtml.g.cs
 C:\Users\mateu\source\repos\YourHike\obj\Debug\netcoreapp3.1\Razor\Views\Hike\Details.cshtml.g.cs
 C:\Users\mateu\source\repos\YourHike\obj\Debug\netcoreapp3.1\Razor\Views\Hike\Edit.cshtml.g.cs
+C:\Users\mateu\source\repos\YourHike\obj\Debug\netcoreapp3.1\Razor\Views\Hike\Create.cshtml.g.cs

@@ -1,10 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "h5r9LGiO+kuC7mOm/ac7//eGw5cUO/FyAL5TGEHZ01HmGHYJcBrGpSewQELCs1GNzLmupdjLc34noP2AAAjEbQ==",
+  "dgSpecHash": "kZgM2NCDKernMXClLHqAHe1L4gT/wS650OCwXfkHZXB+ZW1dig8+fHiPnnFxGjFRkT/AQ451+O8XuPVctE39TQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\mateu\\source\\repos\\YourHike\\YourHike.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mateu\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
+    "C:\\Users\\mateu\\.nuget\\packages\\jquery\\1.12.4\\jquery.1.12.4.nupkg.sha512",
+    "C:\\Users\\mateu\\.nuget\\packages\\jquery.ui.combined\\1.12.1\\jquery.ui.combined.1.12.1.nupkg.sha512",
     "C:\\Users\\mateu\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\mateu\\.nuget\\packages\\microsoft.data.sqlite.core\\5.0.0-rc.2.20475.6\\microsoft.data.sqlite.core.5.0.0-rc.2.20475.6.nupkg.sha512",
     "C:\\Users\\mateu\\.nuget\\packages\\microsoft.dotnet.platformabstractions\\3.1.6\\microsoft.dotnet.platformabstractions.3.1.6.nupkg.sha512",

@@ -17,5 +17,7 @@
   </ImportGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <PkgMicrosoft_EntityFrameworkCore_Tools Condition=" '$(PkgMicrosoft_EntityFrameworkCore_Tools)' == '' ">C:\Users\mateu\.nuget\packages\microsoft.entityframeworkcore.tools\5.0.0-rc.2.20475.6</PkgMicrosoft_EntityFrameworkCore_Tools>
+    <PkgjQuery Condition=" '$(PkgjQuery)' == '' ">C:\Users\mateu\.nuget\packages\jquery\1.12.4</PkgjQuery>
+    <PkgjQuery_UI_Combined Condition=" '$(PkgjQuery_UI_Combined)' == '' ">C:\Users\mateu\.nuget\packages\jquery.ui.combined\1.12.1</PkgjQuery_UI_Combined>
   </PropertyGroup>
 </Project>

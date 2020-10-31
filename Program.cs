@@ -26,7 +26,6 @@ namespace YourHike
                 {
                     var logger = services.GetRequiredService<ILogger<Program>>();
                     logger.LogError(e, "An error occured during migration");
-
                 }
             }
 
