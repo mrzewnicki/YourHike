@@ -1,15 +1,22 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using YourHike.Models.ViewModel;
 
 namespace YourHike.Models.DTO
 {
+
     public class HikeDTO
     {
         public HikeDTO()
         {
             
         }
+
+        /*
+        * Constructor allows mapping ViewModel on DataTransferObject 
+        * to avoid repetition of code
+        */
         public HikeDTO(HikeVM vModel)
         {
             Title = vModel.Title;
@@ -28,5 +35,6 @@ namespace YourHike.Models.DTO
         public string StartPlace { get; set; }
         public string EndPlace { get; set; }
         public double? Distance { get; set; }
+        public ICollection<FileDTO> Files { get; set; }
     }
 }

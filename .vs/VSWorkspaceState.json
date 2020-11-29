@@ -1,0 +1,14 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Controllers",
+    "\\Models",
+    "\\Models\\DTO",
+    "\\Models\\ViewModel",
+    "\\Views",
+    "\\Views\\Hike",
+    "\\Views\\Shared"
+  ],
+  "SelectedNode": "\\Models\\DTO\\HistoryHikeDTO.cs",
+  "PreviewInSolutionExplorer": false
+}

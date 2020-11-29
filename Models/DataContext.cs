@@ -8,10 +8,12 @@ namespace YourHike.Models
     {
         public DataContext(DbContextOptions options):base(options)
         {
-            
+        
         }
 
         public DbSet<HikeDTO> Hikes { get; set; }
+        public DbSet<FileDTO> Files { get; set; }
+        public DbSet<HistoryHikeDTO> HikesHistory { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -35,6 +37,44 @@ namespace YourHike.Models
                     Distance = 9.2
                 }
                 );
+
+                builder.Entity<FileDTO>().HasData(
+                new FileDTO{
+                    Id = 1,
+                    DisplayName="Zdjęcie pierwsze",
+                    FileType = "png",
+                    FileName = "pierwsze_zdjecie.png",
+                    UploadTime = DateTime.Now,
+                    HikeId = 1
+                },
+                new FileDTO{
+                    Id = 2,
+                    DisplayName="Zdjęcie drugie",
+                    FileType = "png",
+                    FileName = "drugie_zdjecie.png",
+                    UploadTime = DateTime.Now,
+                    HikeId = 1
+                },
+                new FileDTO{
+                    Id = 3,
+                    DisplayName="Zdjęcie trzecie",
+                    FileType = "png",
+                    FileName = "trzecie_zdjecie.png",
+                    UploadTime = DateTime.Now,
+                    HikeId = 2
+                }
+            );
+
+            builder.Entity<HistoryHikeDTO>().HasData(
+                new HistoryHikeDTO{
+                    Id = 1,
+                    HikeId = 1,
+                    OldValue = "Chojnowski",
+                    NewValue = "Chojnowski Park Krajobrazowy",
+                    Description = "Zmiana tytułu",
+                    ModifyTime = DateTime.Now
+                }
+            );
         }
         
     }
