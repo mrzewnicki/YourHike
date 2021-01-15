@@ -8,7 +8,7 @@ namespace YourHike.Models
     {
         public DataContext(DbContextOptions options):base(options)
         {
-        
+
         }
 
         public DbSet<HikeDTO> Hikes { get; set; }

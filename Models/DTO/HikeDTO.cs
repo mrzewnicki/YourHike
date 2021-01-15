@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.EntityFrameworkCore;
 using YourHike.Models.ViewModel;
 
 namespace YourHike.Models.DTO
@@ -19,6 +20,7 @@ namespace YourHike.Models.DTO
         */
         public HikeDTO(HikeVM vModel)
         {
+            Id = vModel.Id;
             Title = vModel.Title;
             StartDate = vModel.StartDate;
             EndDate = vModel.EndDate;
@@ -36,5 +38,6 @@ namespace YourHike.Models.DTO
         public string EndPlace { get; set; }
         public double? Distance { get; set; }
         public ICollection<FileDTO> Files { get; set; }
+        public virtual ICollection<HistoryHikeVM> History { get; set; }
     }
 }

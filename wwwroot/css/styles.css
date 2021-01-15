@@ -2,20 +2,36 @@
     background-image: url("../Hikes/Backgrounds/MorskieOko.jpg") !important;
     background-repeat: no-repeat !important;
     background-size: cover !important;
-    /* filter: blur(8px);
-    -webkit-filter: blur(8px); */
+
     height: 100%;
 }
 
-/* hr {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    border: 0;
-    border-top: 1px solid rgba(196, 196, 196, 0.1);
-    width: inherit;
-} */
 
 div>main{
     background-color: rgba(52, 58, 64, 0.5);
-    /* background-color: #343A40; */
 }
+
+.hike-file {
+    border-radius: 15px;
+    border: 2px solid rgba(139, 0, 198, 0.69);
+    transition: all .2s ease-in-out;
+    padding: 15px;
+}
+
+    .hike-file:hover {
+        cursor: pointer;
+        background-color: rgba(139, 0, 198, 0.69);
+        transform: scale(1.1);
+        padding: 5px;
+    }
+
+
+#tblHistory {
+    font-size: 14px !important;
+}
+
+#tblHistory tbody {
+    color: #e8e8e8;
+}
+
+

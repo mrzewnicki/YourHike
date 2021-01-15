@@ -1,3 +1,4 @@
+@using YourHike.Models.ViewModel
 @model YourHike.Models.ViewModel.HikeVM
 
 @{
@@ -62,13 +63,116 @@
         </div>
 
         <div class="form-group">
-            <div class="col-md-offset-2 col-md-5">
-                <input type="submit" value="Zapisz" class="btn btn-success" />
-                @{<a href="~/Hike/Details/@Model.Id" class="btn btn-secondary">Anuluj</a>}
+            @Html.LabelFor(model => model.Files, htmlAttributes: new { @class = "control-label col-2 text-light" })
+            <div class="col-md-5 bg-light">
+                <input type="file" name="files" id="PhotoUpload" />
+                <img id="imgpreview" src="#" />
             </div>
         </div>
+        
+
+        <div id="hike-multimedia" class="col-6 p-3 rounded">
+            @if (Model.Files.Any())
+            {
+                <table class="table table-sm table-dark">
+                    <thead>
+                    <tr>
+                        <th>Nazwa</th>
+                        <th>Data utworzenia</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody id="tbody-files">
+                    @foreach (FileVM file in Model.Files)
+                    {
+                        <tr id="file_@file.Id">
+                            <td>@file.FileName</td>
+                            <td>@file.UploadTime</td>
+                            <td><a class="btn btn-secondary" onclick="Delete('@file.Id')">Usun</a></td>
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <span class="text-light">Brak plikow skojarzonych z wedrowka..</span>
+            }
+        </div>
+        
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-5">
+                <input type="submit" value="Zapisz" class="btn btn-success" />
+                @{<a href="/Hike/Details/@Model.Id" class="btn btn-secondary">Anuluj</a>}
+            </div>
+        </div>
+
     </div>
 }
+
+
+
+
 <script>
     $(".myDatepicker").datepicker();
 </script>
+
+
+@section Scripts
+{
+    <!-- TimePicker -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+
+    <script>
+        /**
+         * Preview
+         */
+        $(function() {
+            function readURL(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+
+                    reader.onload = function(e) {
+                        $("img#imgpreview").attr("src", e.target.result).width(250).height(250);
+                    };
+
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+
+            $("input#PhotoUpload").change(function() {
+                readURL(this);
+            });
+        });
+
+        function Delete(Id) {
+            console.log('usuwam ' + Id);
+            const url = "https://localhost:44336/File/Delete/" + Id;
+            const data = {
+                id: Id
+            };
+
+            $.post(url,
+                data,
+                function(data, status) {
+                    console.log('data: ' + data + " status: " + status);
+
+                    if (status == "success") {
+
+                        if (data == "OK") {
+
+                        } else {
+                            console.log("Serwer napotka³ problem przy wywo³aniu akcji");
+                        }
+
+                    } else {
+                        console.log("Wywo³anie URL: " + url + " nie powiod³o siê");
+                    }
+
+                    var toDelete = $("#file_"+Id);
+                    toDelete.remove();
+                });
+
+        }
+    </script>
+}

@@ -11,69 +11,77 @@
     </div>
 }
 
-@using (Html.BeginForm("Create", "Hike", FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm("Create", "Hike", FormMethod.Post, new { enctype = "multipart/form-data"}))
 {
     @Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.Id)
+<div class="form-horizontal">
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.Id)
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-2 text-light" })
-            <div class="col-md-5">
-                @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control col-auto" } })
-                @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.StartDate, htmlAttributes: new { @class = "control-label col-2 text-light" })
-            <div class="col-md-5">
-                @Html.EditorFor(model => model.StartDate, new { htmlAttributes = new { @class = "form-control col-auto myDatepicker" } })
-                @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.EndDate, htmlAttributes: new { @class = "control-label col-2 text-light" })
-            <div class="col-md-5">
-                @Html.EditorFor(model => model.EndDate, new { htmlAttributes = new { @class = "form-control col-auto myDatepicker" } })
-                @Html.ValidationMessageFor(model => model.EndDate, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.StartPlace, htmlAttributes: new { @class = "control-label col-2 text-light" })
-            <div class="col-md-5">
-                @Html.EditorFor(model => model.StartPlace, new { htmlAttributes = new { @class = "form-control col-auto" } })
-                @Html.ValidationMessageFor(model => model.StartPlace, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.EndPlace, htmlAttributes: new { @class = "control-label col-2 text-light" })
-            <div class="col-md-5">
-                @Html.EditorFor(model => model.EndPlace, new { htmlAttributes = new { @class = "form-control col-auto" } })
-                @Html.ValidationMessageFor(model => model.EndPlace, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Distance, htmlAttributes: new { @class = "control-label col-2 text-light" })
-            <div class="col-md-5">
-                @Html.EditorFor(model => model.Distance, new { htmlAttributes = new { @class = "form-control col-auto" } })
-                @Html.ValidationMessageFor(model => model.Distance, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-5">
-                <input type="submit" value="Dodaj" class="btn btn-success" />
-            </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-2 text-light" })
+        <div class="col-md-5">
+            @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control col-auto" } })
+            @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
         </div>
     </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.StartDate, htmlAttributes: new { @class = "control-label col-2 text-light" })
+        <div class="col-md-5">
+            @Html.EditorFor(model => model.StartDate, new { htmlAttributes = new { @class = "form-control col-auto myDatepicker" } })
+            @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.EndDate, htmlAttributes: new { @class = "control-label col-2 text-light" })
+        <div class="col-md-5">
+            @Html.EditorFor(model => model.EndDate, new { htmlAttributes = new { @class = "form-control col-auto myDatepicker" } })
+            @Html.ValidationMessageFor(model => model.EndDate, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.StartPlace, htmlAttributes: new { @class = "control-label col-2 text-light" })
+        <div class="col-md-5">
+            @Html.EditorFor(model => model.StartPlace, new { htmlAttributes = new { @class = "form-control col-auto" } })
+            @Html.ValidationMessageFor(model => model.StartPlace, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.EndPlace, htmlAttributes: new { @class = "control-label col-2 text-light" })
+        <div class="col-md-5">
+            @Html.EditorFor(model => model.EndPlace, new { htmlAttributes = new { @class = "form-control col-auto" } })
+            @Html.ValidationMessageFor(model => model.EndPlace, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Distance, htmlAttributes: new { @class = "control-label col-2 text-light" })
+        <div class="col-md-5">
+            @Html.EditorFor(model => model.Distance, new { htmlAttributes = new { @class = "form-control col-auto" } })
+            @Html.ValidationMessageFor(model => model.Distance, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Files, htmlAttributes: new { @class = "control-label col-2 text-light" })
+        <div class="col-md-5">
+            <input type="file" name="files" id="PhotoUpload" multiple/>
+            <img id="imgpreview" src="#" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-5">
+            <input type="submit" value="Dodaj" class="btn btn-success" />
+        </div>
+    </div>
+</div>
 }
 
 <script>

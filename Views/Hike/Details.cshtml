@@ -1,4 +1,5 @@
-﻿@model YourHike.Models.ViewModel.HikeVM
+﻿@using YourHike.Models.ViewModel
+@model YourHike.Models.ViewModel.HikeVM
 
 @{
     ViewData["Title"] = Model.Title;
@@ -14,7 +15,9 @@
 
         @Html.LabelFor(Model => Model.StartDate, htmlAttributes: new { @class = "control-label text-secondary" })
         <div class="col-md-5 text-weight-bold text-white">
-            @Html.DisplayFor(Model => Model.StartDate, new { htmlAttributes = new { @class = "form-control col-auto " }
+            @Html.DisplayFor(Model => Model.StartDate, new
+            {
+                htmlAttributes = new { @class = "form-control col-auto " }
             })
         </div>
 
@@ -25,24 +28,101 @@
 
         @Html.LabelFor(Model => Model.StartPlace, htmlAttributes: new { @class = "control-label text-secondary" })
         <div class="col-md-5 text-weight-bold text-white">
-            @Html.DisplayFor(Model => Model.StartPlace, new { htmlAttributes = new { @class = "form-control col-auto " }
+            @Html.DisplayFor(Model => Model.StartPlace, new
+            {
+                htmlAttributes = new { @class = "form-control col-auto " }
             })
         </div>
 
         @Html.LabelFor(Model => Model.EndPlace, htmlAttributes: new { @class = "control-label text-secondary" })
         <div class="col-md-5 text-weight-bold text-white">
-            @Html.DisplayFor(Model => Model.EndPlace, new { htmlAttributes = new { @class = "form-control col-auto " }
+            @Html.DisplayFor(Model => Model.EndPlace, new
+            {
+                htmlAttributes = new { @class = "form-control col-auto " }
             })
         </div>
 
         @Html.LabelFor(Model => Model.Distance, htmlAttributes: new { @class = "control-label text-secondary" })
         <div class="col-md-5 text-weight-bold text-white">
-            @Html.DisplayFor(Model => Model.Distance, new { htmlAttributes = new { @class = "form-control col-auto " }
+            @Html.DisplayFor(Model => Model.Distance, new
+            {
+                htmlAttributes = new { @class = "form-control col-auto " }
             })
         </div>
     </div>
 
-    <div id="hike-multimedia" class="col-6">
+    <div id="hike-multimedia" class="col-6 p-3 rounded">
+        <!--Files-->
+        <div>
+            @Html.LabelFor(Model => Model.Files, htmlAttributes: new { @class = "control-label text-light mb-3 bg-dark rounded w-100 p-2 text-center font-weight-bold" })
+            <div class="ml-2">
+                @if (Model.Files.Any())
+                {
+                    @foreach (FileVM file in Model.Files)
+                    {
+                        <a href="~/Hikes/Files/Hike_@Model.Id/@file.FileName" data-lightbox="File_@file.Id" data-title="@file.FileName">
+                            <img class="hike-file m-1" id="File_@file.Id" src="~/Hikes/Files/Hike_@Model.Id/@file.FileName" width="100" height="100" />
+                        </a>
+                    }
+                }
+                else
+                {
+                    <span class="text-light">Brak plików skojarzonych z wędrówką..</span>
+                }
+
+            </div>
+        </div>
+        <!--History of changes-->
+        <div class="mt-2">
+            @Html.LabelFor(Model => Model.History, htmlAttributes: new { @class = "control-label text-light mb-3 bg-dark rounded w-100 p-2 text-center font-weight-bold" })
+            <div class="ml-2">
+                @if (Model.History.Any())
+                {
+                    <table id="tblHistory" class="table table-sm table-dark">
+                        <thead>
+                            <tr>
+                                <th>
+                                    @Html.LabelFor(Model => Model.History.First().ModifyTime, htmlAttributes: new { @class = "control-label text-light mb-3 bg-dark rounded w-100 p-2 text-center font-weight-bold" })
+                                </th>
+                                <th>
+                                    @Html.LabelFor(Model => Model.History.First().Description, htmlAttributes: new { @class = "control-label text-light mb-3 bg-dark rounded w-100 p-2 text-center font-weight-bold" })
+                                </th>
+                                <th>
+                                    @Html.LabelFor(Model => Model.History.First().OldValue, htmlAttributes: new { @class = "control-label text-light mb-3 bg-dark rounded w-100 p-2 text-center font-weight-bold" })
+                                </th>
+                                <th>
+                                    @Html.LabelFor(Model => Model.History.First().NewValue, htmlAttributes: new { @class = "control-label text-light mb-3 bg-dark rounded w-100 p-2 text-center font-weight-bold" })
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (HistoryHikeVM history in Model.History)
+                            {
+                                <tr>
+                                    <th>
+                                        @history.ModifyTime
+                                    </th>
+                                    <th>
+                                        @history.Description
+                                    </th>
+                                    <th>
+                                        @history.OldValue
+                                    </th>
+                                    <th>
+                                        @history.NewValue
+                                    </th>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
+                else
+                {
+                    <span class="text-light">Brak zarchiwizowanych zmian..</span>
+                }
+
+            </div>
+        </div>
 
     </div>
 </div>

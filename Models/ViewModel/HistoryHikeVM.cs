@@ -19,6 +19,11 @@ namespace YourHike.Models.ViewModel
             NewValue = row.NewValue;
             Description = row.Description;
             ModifyTime = row.ModifyTime;
+
+            if (row.Hike != null)
+            {
+                Hike = new HikeVM(row.Hike);
+            }
         }
 
         public int Id { get; set; }

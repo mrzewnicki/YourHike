@@ -17,7 +17,12 @@ namespace YourHike.Models.DTO
         */
         public HistoryHikeDTO(HistoryHikeVM vModel)
         {
-            
+            Id = vModel.Id;
+            HikeId = vModel.HikeId;
+            OldValue = vModel.OldValue;
+            NewValue = vModel.NewValue;
+            Description = vModel.Description;
+            ModifyTime = vModel.ModifyTime;
         }
 
         [Key]

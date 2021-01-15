@@ -51,7 +51,7 @@ namespace YourHike.Migrations
                             FileName = "pierwsze_zdjecie.png",
                             FileType = "png",
                             HikeId = 1,
-                            UploadTime = new DateTime(2020, 11, 29, 12, 32, 18, 986, DateTimeKind.Local).AddTicks(7110)
+                            UploadTime = new DateTime(2021, 1, 15, 3, 28, 4, 871, DateTimeKind.Local).AddTicks(3882)
                         },
                         new
                         {
@@ -60,7 +60,7 @@ namespace YourHike.Migrations
                             FileName = "drugie_zdjecie.png",
                             FileType = "png",
                             HikeId = 1,
-                            UploadTime = new DateTime(2020, 11, 29, 12, 32, 18, 986, DateTimeKind.Local).AddTicks(8043)
+                            UploadTime = new DateTime(2021, 1, 15, 3, 28, 4, 871, DateTimeKind.Local).AddTicks(5560)
                         },
                         new
                         {
@@ -69,7 +69,7 @@ namespace YourHike.Migrations
                             FileName = "trzecie_zdjecie.png",
                             FileType = "png",
                             HikeId = 2,
-                            UploadTime = new DateTime(2020, 11, 29, 12, 32, 18, 986, DateTimeKind.Local).AddTicks(8079)
+                            UploadTime = new DateTime(2021, 1, 15, 3, 28, 4, 871, DateTimeKind.Local).AddTicks(5603)
                         });
                 });
 
@@ -106,9 +106,9 @@ namespace YourHike.Migrations
                         {
                             Id = 1,
                             Distance = 5.4000000000000004,
-                            EndDate = new DateTime(2020, 11, 30, 12, 32, 18, 984, DateTimeKind.Local).AddTicks(4982),
+                            EndDate = new DateTime(2021, 1, 16, 3, 28, 4, 868, DateTimeKind.Local).AddTicks(7761),
                             EndPlace = "Las Kabacki",
-                            StartDate = new DateTime(2020, 11, 29, 12, 32, 18, 979, DateTimeKind.Local).AddTicks(8797),
+                            StartDate = new DateTime(2021, 1, 15, 3, 28, 4, 860, DateTimeKind.Local).AddTicks(5410),
                             StartPlace = "Dom",
                             Title = "Las Kabacki"
                         },
@@ -116,9 +116,9 @@ namespace YourHike.Migrations
                         {
                             Id = 2,
                             Distance = 9.1999999999999993,
-                            EndDate = new DateTime(2020, 12, 4, 12, 32, 18, 984, DateTimeKind.Local).AddTicks(7892),
+                            EndDate = new DateTime(2021, 1, 20, 3, 28, 4, 869, DateTimeKind.Local).AddTicks(1871),
                             EndPlace = "Chojnowski Park Krajobrazowy",
-                            StartDate = new DateTime(2020, 12, 4, 12, 32, 18, 984, DateTimeKind.Local).AddTicks(7853),
+                            StartDate = new DateTime(2021, 1, 20, 3, 28, 4, 869, DateTimeKind.Local).AddTicks(1804),
                             StartPlace = "Dom",
                             Title = "Chojnowski Park Krajobrazowy"
                         });
@@ -157,10 +157,102 @@ namespace YourHike.Migrations
                             Id = 1,
                             Description = "Zmiana tytułu",
                             HikeId = 1,
-                            ModifyTime = new DateTime(2020, 11, 29, 12, 32, 18, 987, DateTimeKind.Local).AddTicks(432),
+                            ModifyTime = new DateTime(2021, 1, 15, 3, 28, 4, 871, DateTimeKind.Local).AddTicks(9220),
                             NewValue = "Chojnowski Park Krajobrazowy",
                             OldValue = "Chojnowski"
                         });
+                });
+
+            modelBuilder.Entity("YourHike.Models.ViewModel.FileVM", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("DisplayName")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("FileName")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("FileType")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("HikeId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("UploadTime")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("HikeId");
+
+                    b.ToTable("FileVM");
+                });
+
+            modelBuilder.Entity("YourHike.Models.ViewModel.HikeVM", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<double?>("Distance")
+                        .HasColumnType("REAL");
+
+                    b.Property<DateTime?>("EndDate")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("EndPlace")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("StartDate")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("StartPlace")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("HikeVM");
+                });
+
+            modelBuilder.Entity("YourHike.Models.ViewModel.HistoryHikeVM", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int?>("HikeDTOId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("HikeId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("ModifyTime")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("NewValue")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("OldValue")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("HikeDTOId");
+
+                    b.HasIndex("HikeId");
+
+                    b.ToTable("HistoryHikeVM");
                 });
 
             modelBuilder.Entity("YourHike.Models.DTO.FileDTO", b =>
@@ -176,8 +268,34 @@ namespace YourHike.Migrations
 
             modelBuilder.Entity("YourHike.Models.DTO.HistoryHikeDTO", b =>
                 {
-                    b.HasOne("YourHike.Models.DTO.HistoryHikeDTO", "Hike")
+                    b.HasOne("YourHike.Models.DTO.HikeDTO", "Hike")
                         .WithMany()
+                        .HasForeignKey("HikeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Hike");
+                });
+
+            modelBuilder.Entity("YourHike.Models.ViewModel.FileVM", b =>
+                {
+                    b.HasOne("YourHike.Models.ViewModel.HikeVM", "Hike")
+                        .WithMany("Files")
+                        .HasForeignKey("HikeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Hike");
+                });
+
+            modelBuilder.Entity("YourHike.Models.ViewModel.HistoryHikeVM", b =>
+                {
+                    b.HasOne("YourHike.Models.DTO.HikeDTO", null)
+                        .WithMany("History")
+                        .HasForeignKey("HikeDTOId");
+
+                    b.HasOne("YourHike.Models.ViewModel.HikeVM", "Hike")
+                        .WithMany("History")
                         .HasForeignKey("HikeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -188,6 +306,15 @@ namespace YourHike.Migrations
             modelBuilder.Entity("YourHike.Models.DTO.HikeDTO", b =>
                 {
                     b.Navigation("Files");
+
+                    b.Navigation("History");
+                });
+
+            modelBuilder.Entity("YourHike.Models.ViewModel.HikeVM", b =>
+                {
+                    b.Navigation("Files");
+
+                    b.Navigation("History");
                 });
 #pragma warning restore 612, 618
         }
